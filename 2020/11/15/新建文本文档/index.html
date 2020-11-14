@@ -1,37 +1,157 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="jiewen">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="孑文"/>
+  <meta property="og:description" content="诗酒趁年华" />
+  <meta property="og:site_name" content="孑文"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://radiant-zi.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="孑文" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>孑文</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/Radiant-zi/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/Radiant-zi/css/style.light.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+  <!-- Google Analytics -->
+  
 
-{% block page_class %}page-post-detail{% endblock %}
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body>
+    <!-- Page Header -->
 
 
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<header class="site-header header-background" style="background-image: url(/Radiant-zi//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/Radiant-zi/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/Radiant-zi/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+</header>
 
-{% endblock %}
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By jiewen</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-11-15</span>
+            <span class="time">01:25:12</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>一、<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/details/82121420">https://blog.csdn.net/qq_36759224/article/details/82121420</a><br>二、出现的问题<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Nathan1987_/article/details/50322493">https://blog.csdn.net/Nathan1987_/article/details/50322493</a><br>三、<br>访问网址应该为<br><a href="https://radiant-zi.github.io/Radiant-zi/">https://Radiant-zi.github.io/Radiant-zi/</a><br>四、_config.yml配置问题<br>其中的url应该为githubpages地址<br>root\后应加项目名称</p>
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/Radiant-zi/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
