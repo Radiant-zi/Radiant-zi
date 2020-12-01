@@ -1,0 +1,40 @@
+一、
+输入ip add
+查看当前本机ip地址信息
+如图：
+
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+如图（已经配置好了的）：
+
+按 ”i “进行修改
+“：” + “wq”保存
+在里面配置好IPADDR，输入和主机同一网段的不同ip即可
+BOOTPROTO改为静态（由DHCP->static）
+添加DNS1=114.114.114.114
+添加(网关)（同一网段即可）GATEWAY=192.168.41.254
+
+另一台同样
+如图：
+
+如果报错（“readonly”option is set （add ！ to override））说明该用户无权限修改
+更换root用户
+
+二、配置防火墙
+（老师写的）
+VMware 下，安装pfsense:
+1/到官方网站下载镜像，https://www.pfsense.org/，解压缩后才是iso镜像文件
+2/在VMware上新建虚拟机，（客户机操作系统）选择（其他），从下拉列表选择(FreeBSD)。网卡选择一个（host-only)一个（NAT）模式。记得MAC地址，一般em1对应NAT，em0对应host-only
+3/将iso镜像文件加入虚拟机光盘驱动，然后安装，安装过程中设置好em1和em0接口。
+4/安装pfSense后，用物理主机浏览器访问pfSense的host-only网卡地址，用户名：amdin ,默认密码：pfsense
+5/设置pfSense上，使得host-only网段的虚拟机可以上互联网：
+5.1/System->Routing->Gateways:
+Name:WAN_DHCP(default);	Interface:WAN;	Gateway:default(NAT gateway);	MoniterIP:default(NAT gateway):
+Default gateway IPv4:WAN_DHCP;
+5.2/System->Routing->Static Routes:
+Network:0.0.0.0/32;		Gateway:WAN_DHCP-X.X.X.X(NAT gateway);	Interface:WAN;
+5.3/Firewall/Rules/WAN:
+Source:*;		Destination:*,	
+5.4/Firewall/Rules/LAN:
+Source:LAN net;	Destination:*;
+6/虚拟机上的host-only网络的Linux虚拟机，要把地址设为静态的，并且要跟pfSense 的LAN一个网段，并且要把GATEWY指向pfSense的LAN的IP
+7/虚拟机Linux可以直接p
