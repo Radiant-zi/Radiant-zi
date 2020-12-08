@@ -546,5 +546,3 @@
 
   window.xkTool = xkTool;
 })(window);
-var xiaokang = new xkTool();
-xiaokang.footFish();
